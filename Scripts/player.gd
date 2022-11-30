@@ -40,7 +40,10 @@ func _process(delta):
 	else:
 		camera.set_as_toplevel(false)
 		camera.global_transform = head.global_transform
-		
+	if Input.is_action_just_pressed("Click")==true && $Head/Camera/SpotLight.visible==true:
+		$Head/Camera/SpotLight.visible=false
+	elif Input.is_action_just_pressed("Click")==true&& $Head/Camera/SpotLight.visible==false:
+		$Head/Camera/SpotLight.visible=true
 func _physics_process(delta):
 	#get keyboard input
 	direction = Vector3.ZERO
