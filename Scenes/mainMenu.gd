@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	$CenterContainer/VBoxContainer/Start.grab_focus()
 
 func _on_Quit_pressed():
 	get_tree().quit()

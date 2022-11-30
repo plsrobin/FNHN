@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/radio/radio.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/radio/radio_lores.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Audio/S1E1.mp3" type="AudioStream" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[node name="Radio" type="Spatial"]
+
+[node name="radio" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+max_db = 1.0
+autoplay = true
