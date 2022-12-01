@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Bathroom Sink/Bathroom Sink_Drain.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Bathroom Sink/Sink Texture.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Bathroom Sink/BathroomSink.fbx_Scene.fbx" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[node name="BathroomSinkfbx_Scene" instance=ExtResource( 3 )]
+
+[node name="Sink" parent="RootNode" index="0"]
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
