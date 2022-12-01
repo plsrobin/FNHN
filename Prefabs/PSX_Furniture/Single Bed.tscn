@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Single Bed/Cheap wood Texture.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Single Bed/Single Bed.fbx_Scene.fbx" type="PackedScene" id=2]
+[ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Single Bed/Messy Bed Texture.jpg" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 3 )
+
+[node name="Single Bedfbx_Scene" instance=ExtResource( 2 )]
+
+[node name="Single_Bedframe" parent="RootNode" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="Single_Mattress" parent="RootNode" index="1"]
+material/0 = SubResource( 2 )
