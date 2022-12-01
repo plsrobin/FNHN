@@ -17,6 +17,10 @@ config/icon="res://Assets/icon.png"
 
 [display]
 
+window/size/width=512
+window/size/height=300
+window/size/test_width=1280
+window/size/test_height=1040
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
