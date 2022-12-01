@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/mainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/nathan-cool.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Menu/Nathanknapp.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Menu/Nathanknapp-hover.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fonts/HelpMe.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Assets/Fonts/Läskig_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Menu/Nathanknapp-press.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 5 )
 
 [node name="mainMenu" type="Control"]
 anchor_right = 1.0
@@ -19,40 +28,78 @@ margin_right = 512.0
 texture = ExtResource( 2 )
 stretch_mode = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 439.0
-margin_top = 257.0
-margin_right = 585.0
-margin_bottom = 343.0
+[node name="Label2" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = -120.0
+margin_right = 211.5
+margin_bottom = -101.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "             . ."
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 146.0
-margin_bottom = 14.0
-text = "Fem nätter hos Nathan"
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = -105.0
+margin_right = 211.5
+margin_bottom = -69.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Fem natter hos Nathan"
+align = 1
+valign = 1
 
-[node name="Start" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 146.0
-margin_bottom = 38.0
-focus_neighbour_top = NodePath("../Quit")
-text = "Start new game"
+[node name="Start" type="TextureButton" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -60.0
+margin_right = 150.0
+size_flags_horizontal = 0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 4 )
 
-[node name="Options" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 42.0
-margin_right = 146.0
-margin_bottom = 62.0
+[node name="Options" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = 10.0
+margin_right = 211.5
+margin_bottom = 30.0
 text = "Options"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 66.0
-margin_right = 146.0
-margin_bottom = 86.0
-focus_neighbour_bottom = NodePath("../Start")
+[node name="Quit" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = 50.0
+margin_right = 211.5
+margin_bottom = 70.0
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Control/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_Quit_pressed"]
