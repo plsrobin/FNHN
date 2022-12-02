@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/models/volvo/volvo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/models/level2/floor.glb" type="PackedScene" id=3]
+[ext_resource path="res://Assets/models/level2/house.glb" type="PackedScene" id=4]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+ambient_light_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+fog_color = Color( 0.239216, 0.239216, 0.239216, 1 )
+fog_sun_color = Color( 0, 0, 0, 1 )
+auto_exposure_max_luma = 0.5
+ss_reflections_enabled = true
+ssao_radius = 128.0
+ssao_intensity = 1.88
+ssao_radius2 = 0.68
+ssao_intensity2 = 1.94
+ssao_bias = 0.087
+ssao_light_affect = 0.57
+ssao_color = Color( 0.47451, 0.0705882, 0.0705882, 1 )
+ssao_quality = 0
+ssao_edge_sharpness = 5.49
+dof_blur_far_enabled = true
+dof_blur_far_distance = 14.76
+dof_blur_far_transition = 0.01
+dof_blur_far_amount = 0.05
+
+[node name="Spatial" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.999641, -0.00207272, -0.0267192, -0.00207449, 0.999998, 3.81772e-05, 0.026719, 9.36289e-05, -0.999643, 26.0652, 1.71531, -24.2637 )
+__meta__ = {
+"_editor_description_": "ne way is to use the Displacement Modifier. Another way is to use the Sculpt Mode.
+Q: How do I create a map terrain?
+
+A: There are a few different ways that you can create terrain for your map. One way is to use a program like Photoshop or GIMP to create a height map. This is a grayscale image where the dark areas represent low areas and the light areas represent high areas. You can then use this height map to generate your terrain in a 3D modeling program.
+
+Another way to create terrain is to use a 3D modeling program to sculpt it by hand. This can be a very time-consuming process, but it can produce very realistic results.
+
+If you want to create procedural terrain, you can use a noise function to generate a height map. This is usually done by combining multiple noise functions together to create different features. For example, you might use a Perlin noise function to generate the overall shape of the terrain, and then use a Voronoi noise function to generate the mountains.
+Q: How do you make a flat terrain in Blender?
+
+A: There are a few ways to make a flat terrain in Blender. One way is to use the built-in plane primitive. Another way is to use the mesh toolbox and select the plane option. Finally, you can use the array modifier to create a grid of evenly spaced vertices.
+Q: How do you make a mountain terrain in Blender?
+
+A: There is no one definitive way to create a mountain terrain in Blender. However, some methods you may consider include using the Sculpt Mode to shape the terrain, using the Displace Modifier to add detail, or using a combination of both.
+Related links:
+
+    How to Create Real 3D Terrain in Blender (Without Plugins)
+    Blender 3D: Noob to Pro/Landscape Modeling I: Basic Terrain
+    Simple terrain in Blender using displace modifier [VIDEO]
+    Generating Realistic Terrain in Blender 2.8 - BlenderNation
+
+Tags
+blender
+Previous Article
+How to put your roblox character in blender
+Next Article
+Blender uv unwrap hotkey
+← Back to the blog
+mail
+github
+facebook
+youtube
+linkedin
+twitter
+Rodney Zamora
+•
+© 2022
+•
+Blender FAQs
+Frequently asked questions"
+}
+
+[node name="FENCE HERE" type="CSGBox" parent="."]
+transform = Transform( -0.0479084, 0, 0.998853, 0, 1, 0, -0.998853, 0, -0.0479084, -46.9, 3.31163, -20.185 )
+width = 92.7572
+height = 21.4145
+
+[node name="FENCE HERE2" type="CSGBox" parent="."]
+transform = Transform( -0.0479084, 0, 0.998852, 0, 1, 0, -0.998852, 0, -0.0479084, 43.583, 9.07191, -25.1956 )
+width = 92.7572
+height = 21.4145
+
+[node name="FENCE HERE3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.46367, 20.3765 )
+width = 92.7572
+height = 21.4145
+
+[node name="FENCE HERE4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.46367, -28.0186 )
+width = 92.7572
+height = 21.4145
+
+[node name="house" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.890599, 0, 0, 0, 0.496445, 0, 0, 0, 0.905177, -3.36803, 4.61951, -20.2637 )
+
+[node name="volvo" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.451184, 0, 1.43054, 0, 1.5, 0, -1.43054, 0, 0.451184, -35.56, 0.497794, -21.3828 )
+
+[node name="SpotLight2" type="SpotLight" parent="volvo"]
+transform = Transform( -0.622312, 0, -0.239107, 0, 0.666667, 0, 0.239107, 0, -0.622312, 0.81177, 0.357283, 2.08157 )
+spot_range = 5.95403
+
+[node name="SpotLight" type="SpotLight" parent="volvo"]
+transform = Transform( -0.629274, -0.108686, -0.191432, -0.0680973, 0.647418, -0.143724, 0.209336, -0.116109, -0.622207, -0.739164, 0.340378, 1.91684 )
+spot_range = 7.62887
+
+[node name="DirectionalLight" type="DirectionalLight" parent="volvo"]
+transform = Transform( 0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 4.76837e-07, 0.857596, 3.14513 )
+
+[node name="floor" parent="." instance=ExtResource( 3 )]
