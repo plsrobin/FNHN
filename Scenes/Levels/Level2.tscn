@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/volvo/volvo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/models/level2/floor.glb" type="PackedScene" id=3]
 [ext_resource path="res://Assets/models/level2/house.glb" type="PackedScene" id=4]
