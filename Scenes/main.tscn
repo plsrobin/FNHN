@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tilesets/tileset.tres" type="MeshLibrary" id=2]
 [ext_resource path="res://Prefabs/Radio.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/geppsi.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/models/geppsi/geppsi.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/models/volvo/volvo.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Environment" id=1]
 ambient_light_color = Color( 0.960784, 0.960784, 0.92549, 1 )
@@ -36,3 +38,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.530853, -29.458 )
 
 [node name="geppsi" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5, 1.85686, -25 )
+
+[node name="geppsi2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35492, 1.80282, -27.0673 )
+
+[node name="volvo" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.95005, 0.616726, -24.9152 )
