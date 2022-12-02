@@ -16,6 +16,8 @@ var velocity = Vector3()
 var gravity_vec = Vector3()
 var movement = Vector3()
 
+var interactables: Array = []
+
 onready var head = $Head
 onready var camera = $Head/Camera
 
@@ -71,3 +73,16 @@ func _physics_process(delta):
 	movement = velocity + gravity_vec
 	
 	move_and_slide_with_snap(movement, snap, Vector3.UP)
+	
+	if not interactables.empty() and interactables.front().has_method("interact"):
+		if Input.is_action_just_pressed("interact"):
+			interactables.front().interact()
+	
+func _on_Area_body_entered(body):
+	if body.has_method("interact"):
+		interactables.append(body)
+		
+		
+func _on_Area_body_exited(body):
+	if body.has_method("interact"):
+		interactables.erase(body)

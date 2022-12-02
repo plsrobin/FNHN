@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape" id=1]
 
 [sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -17,7 +19,6 @@ shape = SubResource( 1 )
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.8, 0, 0.5, -3.49691e-08, 0, 0, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("")
-material/0 = null
 
 [node name="Head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -29,3 +30,12 @@ light_color = Color( 0.862745, 0.866667, 0.839216, 1 )
 light_energy = 0.1
 light_indirect_energy = 0.1
 spot_range = 7.00636
+
+[node name="Area" type="Area" parent="Head/Camera"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Head/Camera/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Head/Camera/Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Head/Camera/Area" to="." method="_on_Area_body_exited"]
