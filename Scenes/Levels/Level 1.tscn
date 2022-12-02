@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Tilesets/tileset.tres" type="MeshLibrary" id=1]
-[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/PSX_Furniture/Single Bed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/medievaldoor.tscn" type="PackedScene" id=4]
 
 [node name="Level 1" type="Spatial"]
 
@@ -24,3 +25,18 @@ __meta__ = {
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="medievaldoor" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.9, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.21797, 2.38419e-07, -5.31188 )
+
+[node name="medievaldoor2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.30516e-08, 0, -1.5, 0, 1.5, 0, 1.9, 0, -6.55671e-08, 18.6267, 2.38419e-07, -8.68989 )
+
+[node name="medievaldoor3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.9, 0, -1.31134e-07, 0, 1.5, 0, 1.66103e-07, 0, -1.5, 25.2272, 2.38419e-07, -3.82835 )
+
+[node name="medievaldoor4" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.9, 0, -1.31134e-07, 0, 1.5, 0, 1.66103e-07, 0, -1.5, 38.7199, 2.38419e-07, -3.88738 )
+
+[node name="medievaldoor5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.9, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 25.7898, 2.38419e-07, -11.1293 )
