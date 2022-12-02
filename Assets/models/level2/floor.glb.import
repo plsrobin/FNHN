@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/geppsi.dae-a70a6457681bce3082363aac139054f6.scn"
+path="res://.import/floor.glb-be2e236a57480342ef7fdd33e93df1a5.scn"
 
 [deps]
 
-source_file="res://Assets/geppsi/geppsi.dae"
-dest_files=[ "res://.import/geppsi.dae-a70a6457681bce3082363aac139054f6.scn" ]
+source_file="res://Assets/models/level2/floor.glb"
+dest_files=[ "res://.import/floor.glb-be2e236a57480342ef7fdd33e93df1a5.scn" ]
 
 [params]
 
