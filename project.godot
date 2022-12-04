@@ -24,6 +24,10 @@ window/size/test_height=1040
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[global]
+
+icon=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

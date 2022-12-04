@@ -13,3 +13,4 @@ material/0 = SubResource( 1 )
 
 [node name="Light" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+light_energy = 0.2
