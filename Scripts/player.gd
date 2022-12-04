@@ -18,13 +18,18 @@ var movement = Vector3()
 
 var interactables: Array = []
 
+var picked_object
+var pull_power = 4
+
 onready var head = $Head
 onready var camera = $Head/Camera
+onready var hand = $Head/Camera/Hand
+onready var raycast = $Head/Camera/RayCast
 
 func _ready():
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
 func _input(event):
 	#get mouse input for camera rotation
 	if event is InputEventMouseMotion:
@@ -42,10 +47,11 @@ func _process(delta):
 	else:
 		camera.set_as_toplevel(false)
 		camera.global_transform = head.global_transform
-	if Input.is_action_just_pressed("Click")==true && $Head/Camera/SpotLight.visible==true:
+	if Input.is_action_just_pressed("flashlight") and $Head/Camera/SpotLight.visible:
 		$Head/Camera/SpotLight.visible=false
-	elif Input.is_action_just_pressed("Click")==true&& $Head/Camera/SpotLight.visible==false:
+	elif Input.is_action_just_pressed("flashlight") and $Head/Camera/SpotLight.visible==false:
 		$Head/Camera/SpotLight.visible=true
+		
 func _physics_process(delta):
 	#get keyboard input
 	direction = Vector3.ZERO
@@ -78,11 +84,31 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("interact"):
 			interactables.front().interact()
 	
-func _on_Area_body_entered(body):
-	if body.has_method("interact"):
-		interactables.append(body)
+	if Input.is_action_just_pressed("interact"):
+		interact()
+
+	if Input.is_action_just_pressed("left_click"):
+		if picked_object == null:
+			pick_object()
+		elif picked_object != null:
+			remove_object()
+
+	if picked_object != null and is_instance_valid(picked_object):
+		picked_object.set_linear_velocity((hand.global_transform.origin-picked_object.global_transform.origin)*pull_power)
+
+	if is_instance_valid(picked_object):
+		picked_object == null
+
+func interact():
+	var collider = raycast.get_collider()
+	if collider != null and collider.is_in_group("door"):
+			collider.interact()
+			
+func pick_object():
+	var collider = raycast.get_collider()
+	if collider != null and collider is RigidBody:
+		picked_object = collider
 		
-		
-func _on_Area_body_exited(body):
-	if body.has_method("interact"):
-		interactables.erase(body)
+func remove_object():
+	if picked_object != null:
+		picked_object = null

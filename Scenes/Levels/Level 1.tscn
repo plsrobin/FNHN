@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Tilesets/tileset.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://Prefabs/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/PSX_Furniture/Single Bed.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/medievaldoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/medievaldoor-locked.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/key.tscn" type="PackedScene" id=6]
 
 [node name="Level 1" type="Spatial"]
 
@@ -26,17 +28,25 @@ __meta__ = {
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
-[node name="medievaldoor" parent="." instance=ExtResource( 4 )]
+[node name="Key" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.87159, 0, -0.490235, 0, 1, 0, 0.490235, 0, 0.87159, 33.0568, 0.0684261, 0.0710125 )
+
+[node name="Doors" type="Spatial" parent="."]
+
+[node name="medievaldoor" parent="Doors" instance=ExtResource( 4 )]
 transform = Transform( 1.9, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.21797, 2.38419e-07, -5.31188 )
 
-[node name="medievaldoor2" parent="." instance=ExtResource( 4 )]
+[node name="medievaldoor2" parent="Doors" instance=ExtResource( 4 )]
 transform = Transform( -8.30516e-08, 0, -1.5, 0, 1.5, 0, 1.9, 0, -6.55671e-08, 18.6267, 2.38419e-07, -8.68989 )
 
-[node name="medievaldoor3" parent="." instance=ExtResource( 4 )]
+[node name="medievaldoor3" parent="Doors" instance=ExtResource( 4 )]
 transform = Transform( -1.9, 0, -1.31134e-07, 0, 1.5, 0, 1.66103e-07, 0, -1.5, 25.2272, 2.38419e-07, -3.82835 )
 
-[node name="medievaldoor4" parent="." instance=ExtResource( 4 )]
+[node name="medievaldoor4" parent="Doors" instance=ExtResource( 4 )]
 transform = Transform( -1.9, 0, -1.31134e-07, 0, 1.5, 0, 1.66103e-07, 0, -1.5, 38.7199, 2.38419e-07, -3.88738 )
 
-[node name="medievaldoor5" parent="." instance=ExtResource( 4 )]
+[node name="medievaldoor5" parent="Doors" instance=ExtResource( 4 )]
 transform = Transform( 1.9, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 25.7898, 2.38419e-07, -11.1293 )
+
+[node name="medievaldoor-locked" parent="Doors" instance=ExtResource( 5 )]
+transform = Transform( 1.9, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 34.7864, 0, -22.967 )
