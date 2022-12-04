@@ -1,4 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
+
 
 [ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Cardboard/Cardboard.jpg" type="Texture" id=1]
 [ext_resource path="res://Assets/PSX_Furniture, Appliances, And Others/Cardboard/Cardboard.material" type="Material" id=2]
@@ -19,10 +20,10 @@ surfaces/0 = {
 "vertex_count": 146
 }
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=6]
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="ArrayMesh" id=2]
 blend_shape_mode = 0
 surfaces/0 = {
 "aabb": AABB( -7.93654e-05, -1, -0.000100007, 0.02, 2.00001, 0.00021 ),
@@ -38,26 +39,64 @@ surfaces/0 = {
 "vertex_count": 30
 }
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=7]
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.303631, 0.299883, 0.301217 )
+[sub_resource type="Animation" id=3]
+resource_name = "BoxLid|Closed"
+length = 0.04
+tracks/0/type = "transform"
+tracks/0/path = NodePath("BoxLid")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -0.3, 0.6, 0, -0.707107, 0, 0, 0.707107, 30.24, 0.3, 30, 0.04, 1, -0.3, 0.6, 0, -0.707107, 0, 0, 0.707107, 30.24, 0.3, 30 )
 
-[node name="Box" type="RigidBody"]
+[sub_resource type="Animation" id=4]
+resource_name = "BoxLid|Open"
+length = 0.04
+tracks/0/type = "transform"
+tracks/0/path = NodePath("BoxLid")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -0.3, 0.6, 0, -0.326505, 0.627212, -0.627211, 0.326505, 30.24, 0.3, 30, 0.04, 1, -0.3, 0.6, 0, -0.326505, 0.627212, -0.627211, 0.326505, 30.24, 0.3, 30 )
 
-[node name="Box1002" type="MeshInstance" parent="."]
+[sub_resource type="Animation" id=5]
+resource_name = "BoxLid|Opening"
+length = 1.56
+tracks/0/type = "transform"
+tracks/0/path = NodePath("BoxLid")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -0.3, 0.6, 0, 0, 0, 0, 1, 30.24, 0.3, 30, 0.04, 1, -0.3, 0.6, 0, 0, 0, 0.00397574, 0.999992, 30.24, 0.3, 30, 0.08, 1, -0.3, 0.6, 0, 0, 0, 0.0156258, 0.999878, 30.24, 0.3, 30, 0.12, 1, -0.3, 0.6, 0, 0, 0, 0.0345303, 0.999404, 30.24, 0.3, 30, 0.16, 1, -0.3, 0.6, 0, 0, 0, 0.0602566, 0.998183, 30.24, 0.3, 30, 0.2, 1, -0.3, 0.6, 0, 0, 0, 0.0923477, 0.995727, 30.24, 0.3, 30, 0.24, 1, -0.3, 0.6, 0, 0, 0, 0.13031, 0.991473, 30.24, 0.3, 30, 0.28, 1, -0.3, 0.6, 0, 0, 0, 0.1736, 0.984816, 30.24, 0.3, 30, 0.32, 1, -0.3, 0.6, 0, 0, 0, 0.221616, 0.975134, 30.24, 0.3, 30, 0.36, 1, -0.3, 0.6, 0, 0, 0, 0.273693, 0.961817, 30.24, 0.3, 30, 0.4, 1, -0.3, 0.6, 0, 0, 0, 0.329096, 0.944297, 30.24, 0.3, 30, 0.44, 1, -0.3, 0.6, 0, 0, 0, 0.387024, 0.922069, 30.24, 0.3, 30, 0.48, 1, -0.3, 0.6, 0, 0, 0, 0.446621, 0.894723, 30.24, 0.3, 30, 0.52, 1, -0.3, 0.6, 0, 0, 0, 0.506981, 0.861957, 30.24, 0.3, 30, 0.56, 1, -0.3, 0.6, 0, 0, 0, 0.567173, 0.823599, 30.24, 0.3, 30, 0.6, 1, -0.3, 0.6, 0, 0, 0, 0.626256, 0.779617, 30.24, 0.3, 30, 0.64, 1, -0.3, 0.6, 0, 0, 0, 0.683306, 0.730132, 30.24, 0.3, 30, 0.68, 1, -0.3, 0.6, 0, 0, 0, 0.73744, 0.675412, 30.24, 0.3, 30, 0.72, 1, -0.3, 0.6, 0, 0, 0, 0.787844, 0.615874, 30.24, 0.3, 30, 0.76, 1, -0.3, 0.6, 0, 0, 0, 0.833798, 0.55207, 30.24, 0.3, 30, 0.8, 1, -0.3, 0.6, 0, 0, 0, 0.874697, 0.484671, 30.24, 0.3, 30, 0.84, 1, -0.3, 0.6, 0, 0, 0, 0.910073, 0.414447, 30.24, 0.3, 30, 0.88, 1, -0.3, 0.6, 0, 0, 0, 0.93961, 0.342247, 30.24, 0.3, 30, 0.92, 1, -0.3, 0.6, 0, 0, 0, 0.963151, 0.268963, 30.24, 0.3, 30, 0.96, 1, -0.3, 0.6, 0, 0, 0, 0.980702, 0.195509, 30.24, 0.3, 30, 1, 1, -0.3, 0.6, 0, 0, 0, 0.992432, 0.122793, 30.24, 0.3, 30, 1.04, 1, -0.3, 0.6, 0, 0, 0, 0.998663, 0.0516904, 30.24, 0.3, 30, 1.08, 1, -0.3, 0.6, 0, 0, 0, 0.999856, -0.0169798, 30.24, 0.3, 30, 1.12, 1, -0.3, 0.6, 0, 0, 0, 0.996594, -0.0824696, 30.24, 0.3, 30, 1.16, 1, -0.3, 0.6, 0, 0, 0, 0.989561, -0.144116, 30.24, 0.3, 30, 1.2, 1, -0.3, 0.6, 0, 0, 0, 0.97952, -0.201348, 30.24, 0.3, 30, 1.24, 1, -0.3, 0.6, 0, 0, 0, 0.967285, -0.253691, 30.24, 0.3, 30, 1.28, 1, -0.3, 0.6, 0, 0, 0, 0.953702, -0.300753, 30.24, 0.3, 30, 1.32, 1, -0.3, 0.6, 0, 0, 0, 0.939618, -0.342225, 30.24, 0.3, 30, 1.36, 1, -0.3, 0.6, 0, 0, 0, 0.925862, -0.377862, 30.24, 0.3, 30, 1.4, 1, -0.3, 0.6, 0, 0, 0, 0.913223, -0.407461, 30.24, 0.3, 30, 1.44, 1, -0.3, 0.6, 0, 0, 0, 0.902426, -0.430844, 30.24, 0.3, 30, 1.48, 1, -0.3, 0.6, 0, 0, 0, 0.894118, -0.447832, 30.24, 0.3, 30, 1.52, 1, -0.3, 0.6, 0, 0, 0, 0.88884, -0.458218, 30.24, 0.3, 30 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.311347, 0.301853, 0.310614 )
+
+[node name="Boxfbx_Scene" type="RigidBody"]
+
+[node name="RootNode" type="Spatial" parent="."]
+
+[node name="Box1002" type="MeshInstance" parent="RootNode"]
 transform = Transform( 30.24, 0, 0, 0, -1.07288e-07, 30, 0, -0.3, -1.07288e-05, 0, 0, 0 )
 mesh = SubResource( 1 )
-skeleton = NodePath("")
-material/0 = SubResource( 2 )
+material/0 = SubResource( 6 )
 
-[node name="BoxLid" type="MeshInstance" parent="."]
+[node name="BoxLid" type="MeshInstance" parent="RootNode"]
 transform = Transform( 30.24, 0, 0, 0, -1.07288e-07, 30, 0, -0.3, -1.07288e-05, -0.3, 0.6, 0 )
-mesh = SubResource( 3 )
-skeleton = NodePath("")
-material/0 = SubResource( 4 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RootNode"]
+anims/BoxLid|Closed = SubResource( 3 )
+anims/BoxLid|Open = SubResource( 4 )
+anims/BoxLid|Opening = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.301413, 0 )
-shape = SubResource( 5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.323533, 0 )
+shape = SubResource( 8 )
