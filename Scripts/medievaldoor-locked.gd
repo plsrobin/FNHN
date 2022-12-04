@@ -18,3 +18,6 @@ func _on_Closearea_body_entered(body):
 	if door_state:
 		$StaticBody/AnimationPlayer.play("doorClose")
 		door_state  = !door_state 
+
+func _on_Closearea_body_exited(body):
+	pass 
