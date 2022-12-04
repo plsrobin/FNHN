@@ -291,7 +291,7 @@ spot_range = 4.69367
 [node name="floor" parent="." instance=ExtResource( 3 )]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.999591, 0, 0.0285846, 0, 1, 0, -0.0285846, 0, -0.999591, -15.2368, 1.65776, -14.1577 )
+transform = Transform( -0.999591, 0, 0.0285846, 0, 1, 0, -0.0285846, 0, -0.999591, 20.8031, 1.65776, -21.4452 )
 
 [node name="house_20" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.0370103, 0, 4.41418, 0, 2.58919, 0, -3.26538, 0, 0.0148951, 1.18343, 6.91321, -20.7019 )
