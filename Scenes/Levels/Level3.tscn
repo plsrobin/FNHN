@@ -9,7 +9,7 @@
 [ext_resource path="res://Scripts/detect_on_floor.gd" type="Script" id=8]
 [ext_resource path="res://Prefabs/PSX_Furniture/Box.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/PSX_Furniture/Fridge.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Prefabs/PSX_Furniture/TV.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/PSX_Furniture/Tv.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Environment" id=1]
 background_energy = 0.0
