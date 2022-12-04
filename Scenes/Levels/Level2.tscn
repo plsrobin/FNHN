@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Prefabs/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/player_level2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/volvo/volvo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/models/level2/floor.glb" type="PackedScene" id=3]
-[ext_resource path="res://Assets/models/level2/house.glb" type="PackedScene" id=4]
+[ext_resource path="res://Assets/models/level2/fence/fence.glb" type="PackedScene" id=4]
+[ext_resource path="res://Assets/models/level2/house2/house_2.0.glb" type="PackedScene" id=5]
+[ext_resource path="res://Assets/models/level2/door/door.glb" type="PackedScene" id=6]
+[ext_resource path="res://Assets/models/level2/trapdoor/trapdoor.glb" type="PackedScene" id=7]
+[ext_resource path="res://Assets/models/level2/tree/tree.glb" type="PackedScene" id=8]
+[ext_resource path="res://Assets/models/level2/funny/feet.png" type="Texture" id=9]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -26,91 +31,323 @@ dof_blur_far_distance = 14.76
 dof_blur_far_transition = 0.01
 dof_blur_far_amount = 0.05
 
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 9 )
+
 [node name="Spatial" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.999641, -0.00207272, -0.0267192, -0.00207449, 0.999998, 3.81772e-05, 0.026719, 9.36289e-05, -0.999643, 26.0652, 1.71531, -24.2637 )
-__meta__ = {
-"_editor_description_": "ne way is to use the Displacement Modifier. Another way is to use the Sculpt Mode.
-Q: How do I create a map terrain?
-
-A: There are a few different ways that you can create terrain for your map. One way is to use a program like Photoshop or GIMP to create a height map. This is a grayscale image where the dark areas represent low areas and the light areas represent high areas. You can then use this height map to generate your terrain in a 3D modeling program.
-
-Another way to create terrain is to use a 3D modeling program to sculpt it by hand. This can be a very time-consuming process, but it can produce very realistic results.
-
-If you want to create procedural terrain, you can use a noise function to generate a height map. This is usually done by combining multiple noise functions together to create different features. For example, you might use a Perlin noise function to generate the overall shape of the terrain, and then use a Voronoi noise function to generate the mountains.
-Q: How do you make a flat terrain in Blender?
-
-A: There are a few ways to make a flat terrain in Blender. One way is to use the built-in plane primitive. Another way is to use the mesh toolbox and select the plane option. Finally, you can use the array modifier to create a grid of evenly spaced vertices.
-Q: How do you make a mountain terrain in Blender?
-
-A: There is no one definitive way to create a mountain terrain in Blender. However, some methods you may consider include using the Sculpt Mode to shape the terrain, using the Displace Modifier to add detail, or using a combination of both.
-Related links:
-
-    How to Create Real 3D Terrain in Blender (Without Plugins)
-    Blender 3D: Noob to Pro/Landscape Modeling I: Basic Terrain
-    Simple terrain in Blender using displace modifier [VIDEO]
-    Generating Realistic Terrain in Blender 2.8 - BlenderNation
-
-Tags
-blender
-Previous Article
-How to put your roblox character in blender
-Next Article
-Blender uv unwrap hotkey
-← Back to the blog
-mail
-github
-facebook
-youtube
-linkedin
-twitter
-Rodney Zamora
-•
-© 2022
-•
-Blender FAQs
-Frequently asked questions"
-}
-
-[node name="FENCE HERE" type="CSGBox" parent="."]
-transform = Transform( -0.0479084, 0, 0.998853, 0, 1, 0, -0.998853, 0, -0.0479084, -46.9, 3.31163, -20.185 )
-width = 92.7572
-height = 21.4145
-
-[node name="FENCE HERE2" type="CSGBox" parent="."]
-transform = Transform( -0.0479084, 0, 0.998852, 0, 1, 0, -0.998852, 0, -0.0479084, 43.583, 9.07191, -25.1956 )
-width = 92.7572
-height = 21.4145
-
-[node name="FENCE HERE3" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.46367, 20.3765 )
-width = 92.7572
-height = 21.4145
-
-[node name="FENCE HERE4" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.46367, -28.0186 )
-width = 92.7572
-height = 21.4145
-
-[node name="house" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.890599, 0, 0, 0, 0.496445, 0, 0, 0, 0.905177, -3.36803, 4.61951, -20.2637 )
-
 [node name="volvo" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.451184, 0, 1.43054, 0, 1.5, 0, -1.43054, 0, 0.451184, -35.56, 0.497794, -21.3828 )
+transform = Transform( 0.451184, 0, 1.43054, 0, 1.5, 0, -1.43054, 0, 0.451184, -35.56, 0.497794, -25.2226 )
 
-[node name="SpotLight2" type="SpotLight" parent="volvo"]
-transform = Transform( -0.622312, 0, -0.239107, 0, 0.666667, 0, 0.239107, 0, -0.622312, 0.81177, 0.357283, 2.08157 )
-spot_range = 5.95403
+[node name="BackPointBack2" type="SpotLight" parent="volvo"]
+transform = Transform( -0.664952, 0, -0.0477577, 0, 0.666667, 0, 0.0477577, 0, -0.664952, -0.265315, 0.777255, -3.40716 )
+spot_range = 3.18866
 
-[node name="SpotLight" type="SpotLight" parent="volvo"]
-transform = Transform( -0.629274, -0.108686, -0.191432, -0.0680973, 0.647418, -0.143724, 0.209336, -0.116109, -0.622207, -0.739164, 0.340378, 1.91684 )
+[node name="FrontLeft" type="SpotLight" parent="volvo"]
+transform = Transform( -0.666665, 0, -1.3411e-07, 0, 0.666667, 0, 1.3411e-07, 0, -0.666665, 0.741989, 0.344122, 2.23093 )
+spot_range = 7.74899
+
+[node name="houseLight" type="SpotLight" parent="volvo/FrontLeft"]
+transform = Transform( 0.964387, 0, 0.264496, 0, 1, 0, -0.264496, 0, 0.964387, -1.28204, 4.24809, -13.132 )
+light_energy = 0.2
+spot_range = 12.5743
+spot_angle = 70.3125
+
+[node name="FrontRight" type="SpotLight" parent="volvo"]
+transform = Transform( -0.666665, 0, 5.82817e-08, 0, 0.666667, 0, -5.82817e-08, 0, -0.666665, -0.556999, 0.34, 2.252 )
 spot_range = 7.62887
 
-[node name="DirectionalLight" type="DirectionalLight" parent="volvo"]
-transform = Transform( 0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 4.76837e-07, 0.857596, 3.14513 )
+[node name="FrontLightUp" type="SpotLight" parent="volvo"]
+transform = Transform( 0.666665, 0, 2.98023e-08, 0, 0.666667, 0, -2.98023e-08, 0, 0.666665, -0.112519, 1.81166, 4.23355 )
+light_energy = 1.5
+spot_range = 4.69367
 
 [node name="floor" parent="." instance=ExtResource( 3 )]
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.999591, 0, 0.0285846, 0, 1, 0, -0.0285846, 0, -0.999591, 19.8245, 1.65776, -19.3057 )
+
+[node name="house_20" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.0370103, 0, 4.41418, 0, 2.58919, 0, -3.26538, 0, 0.0148951, 1.18343, 6.91321, -20.7019 )
+
+[node name="door_first" parent="house_20" instance=ExtResource( 6 )]
+transform = Transform( 0.154153, 0, -0.0108546, 0, 0.114124, 0, 0.00404464, 0, 0.226268, 0.141039, -2.05301, -2.51294 )
+
+[node name="door_volvo" parent="house_20" instance=ExtResource( 6 )]
+transform = Transform( -0.154162, 0, -0.000987429, 0, 0.114124, 0, 0.00036617, 0, -0.226539, -0.719752, -2.05302, 2.51152 )
+
+[node name="fence" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4149, -0.144204, -43.7715 )
+
+[node name="fence" parent="fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.27014 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.65211, 0, 1.63993 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146471, 0.00814532, 3.29853 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.67283, 0, 1.57088 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, 0, 0, 1, 0, 0, 3.22505 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.6155, 0, 1.66303 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 0, 0, 1, -0.0294571, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, -1.42109e-14, 0, 1, -0.0294533, 0, 3.37451 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 0.942892, 0, 0.333103, 0, 1, 0, -0.333096, 0, 0.942892, 0.661156, 0, 3.48198 )
+
+[node name="fence" parent="fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence/fence" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, -0.0294609, 0, 1.48523 )
+
+[node name="trapdoor" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2762, -0.034843, -21.4002 )
+
+[node name="tree" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8104, 4.33503, -4.25324 )
+
+[node name="secret_ending" type="CSGBox" parent="."]
+transform = Transform( -1.1526, -0.0124958, 0, -0.0033299, 0.956951, 0.409519, 0.0014252, -0.409576, 0.956816, 35.1367, -4.54011, -115.673 )
+width = 8.5675
+height = 9.54464
+material = SubResource( 2 )
