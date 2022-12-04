@@ -16,6 +16,7 @@ var atPos1 = false
 var atPos2 = false
 
 var enemyName = "BaseEnemy"
+var playerName = "player"
 
 onready var nav = get_parent()
 onready var player = $"../../player"
@@ -46,16 +47,29 @@ func _on_Timer_timeout():
 			move_to(wp2.global_transform.origin)
 
 
-
+#waypoint 1
 func _on_wp1_body_entered(body):
-	print("wp1")
-	print(body.name)
+	print("wp1:")
+	print("- "+body.name)
 	if body.name == enemyName:
 		atPos1 = true
 
-
+#waypoint 2
 func _on_wp2_body_entered(body):
-	print("wp2")
-	print(body.name)
+	print("wp2:")
+	print("- "+body.name)
 	if body.name == enemyName:
 		atPos1 = false
+
+
+#player is near enemy
+func _on_reaction_body_entered(body):
+	print("Enemy reaction: "+body.name)
+	if body.name == playerName:
+		roam = false
+
+
+func _on_reaction_body_exited(body):
+	print("Enemy lost: "+body.name)
+	if body.name == playerName:
+		roam = true

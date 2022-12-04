@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Prefabs/BaseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/player.tscn" type="PackedScene" id=2]
@@ -36,8 +36,6 @@ data = PoolVector3Array( 0, 1, 1, 0.098, 1, 0.9952, 0, 0.6, 1, 0.098, 1, 0.9952,
 
 [sub_resource type="ConcavePolygonShape" id=11]
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
-[sub_resource type="CapsuleShape" id=14]
 
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 4.46129, 6.40769, 5.11533 )
@@ -100,12 +98,8 @@ shape = SubResource( 11 )
 [node name="BaseEnemy" parent="Navigation" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0556, 1.90735e-06 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Navigation/BaseEnemy"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 14 )
-
 [node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.9124, 0, 0, 0, 1.38351, 0, 0, 0, 1.40422, 0, 5.19185, 7.58543 )
+transform = Transform( -1.57574, 0, -0.795702, 0, 1.38351, 0, 1.08366, 0, -1.15702, -22.8349, 13.1374, -15.211 )
 
 [node name="wp1" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0919, 7.40852, -19.0952 )
