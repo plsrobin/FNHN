@@ -1,16 +1,34 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Tilesets/tileset.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://Prefabs/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/PSX_Furniture/Single Bed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/PSX_Furniture/Bed_Double.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/medievaldoor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/medievaldoor-locked.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/key.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/PSX_Furniture/Boombox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/PSX_Furniture/Dresser.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/PSX_Furniture/TVStand.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/PSX_Furniture/Tv.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Prefabs/PSX_Furniture/FloorLamp.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/PSX_Furniture/Outlet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Prefabs/PSX_Furniture/Kitchen_Sink.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Prefabs/PSX_Furniture/Cupboard.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Prefabs/PSX_Furniture/TopCupboard.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Prefabs/PSX_Furniture/Fridge.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Prefabs/PSX_Furniture/Phone.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Prefabs/PSX_Furniture/Stove.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Prefabs/PSX_Furniture/Microwave.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Prefabs/PSX_Furniture/Couch.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Prefabs/PSX_Furniture/Small_Table.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Prefabs/PSX_Furniture/Pan.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Prefabs/PSX_Furniture/Toaster.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Prefabs/PSX_Furniture/Bathtub.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Prefabs/PSX_Furniture/BathroomSink.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Prefabs/PSX_Furniture/Toilet.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Prefabs/PSX_Furniture/Single Bed.tscn" type="PackedScene" id=27]
 
 [node name="Level 1" type="Spatial"]
-
-[node name="Single Bedfbx_Scene" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.999474, 0, 0.0324225, 0, 1, 0, -0.0324225, 0, -0.999474, 0, 0, 0 )
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
@@ -26,10 +44,10 @@ __meta__ = {
 }
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.43805, 1.1894, 0.510555 )
 
 [node name="Key" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.87159, 0, -0.490235, 0, 1, 0, 0.490235, 0, 0.87159, 33.0568, 0.0684261, 0.0710125 )
+transform = Transform( 0.87159, 0, -0.490235, 0, 1, 0, 0.490235, 0, 0.87159, 29.0541, 0.992467, 3.47607 )
 
 [node name="Doors" type="Spatial" parent="."]
 
@@ -50,3 +68,193 @@ transform = Transform( 1.9, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 25.7898, 2.38419e-07, -1
 
 [node name="medievaldoor-locked" parent="Doors" instance=ExtResource( 5 )]
 transform = Transform( 1.9, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 34.7864, 0, -22.967 )
+
+[node name="Starting-room" type="Spatial" parent="."]
+
+[node name="TVStand" parent="Starting-room" instance=ExtResource( 9 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 1.5, 0, -2, 0, -8.74228e-08, -2.684, 0.7, 2.561 )
+
+[node name="Dresser" parent="Starting-room" instance=ExtResource( 8 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 1.5, 0, 2, 0, -8.74228e-08, 5.53654, 0, -1.79931 )
+
+[node name="Boombox" parent="Starting-room" instance=ExtResource( 7 )]
+transform = Transform( -0.713177, 0, 0.700984, 0, 1, 0, -0.700984, 0, -0.713177, -3.034, 1.2, 1.091 )
+
+[node name="Bed_Double" parent="Starting-room" instance=ExtResource( 3 )]
+transform = Transform( -6.55671e-08, 0, -1.5, 0, 1, 0, 1.5, 0, -6.55671e-08, 4.216, 0.5, 2.36632 )
+
+[node name="Tv" parent="Starting-room" instance=ExtResource( 10 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -3.5, 1.2, 2.6 )
+
+[node name="Outlet" parent="Starting-room" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.45, 0.3, 0.097 )
+
+[node name="FloorLamp" parent="Starting-room" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1.5, 0, 1, 0, -4.37114e-08, 5.33141, -2.38419e-07, 4.03057 )
+
+[node name="Kitchen" type="Spatial" parent="."]
+
+[node name="Toaster" parent="Kitchen" instance=ExtResource( 23 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.47998, 1.33286, -15.4976 )
+
+[node name="Stove" parent="Kitchen" instance=ExtResource( 18 )]
+transform = Transform( 1.5, 0, 0, 0, 1.4, 0, 0, 0, 1.5, 5.424, 0, -17.7371 )
+
+[node name="Phone" parent="Kitchen" instance=ExtResource( 17 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.35925, 0.164006, -18.6525 )
+
+[node name="Cupboard2" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( 2, 0, 0, 0, 1.25, 0, 0, 0, 2, 0.15, 0, -17.4 )
+
+[node name="Cupboard" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( 2, 0, 0, 0, 1.25, 0, 0, 0, 2, 3.85, 0, -17.4 )
+
+[node name="Kitchen_Sink" parent="Kitchen" instance=ExtResource( 13 )]
+transform = Transform( 2, 0, 0, 0, 1.25, 0, 0, 0, 2, 2, 0, -17.4 )
+
+[node name="TopCupboard" parent="Kitchen" instance=ExtResource( 15 )]
+transform = Transform( 2, 0, 0, 0, 1.25, 0, 0, 0, 3, 0.15, 0.329, -17.045 )
+
+[node name="Cupboard3" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 1.25, 0, 1.74846e-07, 0, -2, 0.15, 0, -13.4 )
+
+[node name="Cupboard4" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 1.25, 0, 1.74846e-07, 0, -2, 3.85, 0, -13.4 )
+
+[node name="Cupboard5" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 1.25, 0, 1.74846e-07, 0, -2, 2, 0, -13.4 )
+
+[node name="Fridge" parent="Kitchen" instance=ExtResource( 16 )]
+transform = Transform( 1.5, 0, 0, 0, 1.25, 0, 0, 0, 1.5, -1.85, 0, -17.382 )
+
+[node name="Fridge2" parent="Kitchen" instance=ExtResource( 16 )]
+transform = Transform( 1.5, 0, 0, 0, 1.25, 0, 0, 0, 1.5, -3.7, 0, -17.382 )
+
+[node name="Cupboard6" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 1.25, 0, 2, 0, -8.74228e-08, 6.67295, 0, -17.0603 )
+
+[node name="Cupboard7" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 1.25, 0, 2, 0, -8.74228e-08, 6.67295, 0, -15.2497 )
+
+[node name="Cupboard8" parent="Kitchen" instance=ExtResource( 14 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 1.25, 0, 2, 0, -8.74228e-08, 6.67295, 0, -13.7031 )
+
+[node name="Microwave" parent="Kitchen" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39903, 1.22838, -17.6283 )
+
+[node name="Pan" parent="Kitchen" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.01879, 1.26387, -17.1727 )
+
+[node name="Pan2" parent="Kitchen" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.79865, 1.2513, -17.548 )
+
+[node name="TV-room" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3626, 0.799087, -13.8553 )
+
+[node name="Couch" parent="TV-room" instance=ExtResource( 20 )]
+transform = Transform( 2, 0, 0, 0, 1.2, 0, 0, 0, 1, -3.38219, -0.476486, -0.970606 )
+
+[node name="TVStand" parent="TV-room" instance=ExtResource( 9 )]
+transform = Transform( -8.74228e-08, 0, -1.5, 0, 1.5, 0, 2, 0, -6.55671e-08, 1.52414, -0.0947454, -0.968859 )
+
+[node name="Tv" parent="TV-room" instance=ExtResource( 10 )]
+transform = Transform( -1.31134e-07, 0, -2, 0, 2, 0, 3, 0, -8.74228e-08, 2.32664, 0.383773, -0.915437 )
+
+[node name="Small_Table" parent="TV-room" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1.25, 0, 0, 0, 3, -0.418743, -0.785167, -1.02716 )
+
+[node name="End-Room" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8718, 0.799087, -13.6206 )
+
+[node name="Couch" parent="End-Room" instance=ExtResource( 20 )]
+transform = Transform( 2, 0, 0, 0, 1.2, 0, 0, 0, 1, -3.38219, -0.476486, -0.970606 )
+
+[node name="TVStand" parent="End-Room" instance=ExtResource( 9 )]
+transform = Transform( -8.74228e-08, 0, -1.5, 0, 1.5, 0, 2, 0, -6.55671e-08, 1.52414, -0.0947454, -0.968859 )
+
+[node name="Tv" parent="End-Room" instance=ExtResource( 10 )]
+transform = Transform( -1.31134e-07, 0, -2, 0, 2, 0, 3, 0, -8.74228e-08, 2.32664, 0.383773, -0.915437 )
+
+[node name="Small_Table" parent="End-Room" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1.25, 0, 0, 0, 3, -0.418743, -0.785167, -1.02716 )
+
+[node name="Couch2" parent="End-Room" instance=ExtResource( 20 )]
+transform = Transform( 1.26652, 0, -0.77394, 0, 1.2, 0, 1.54788, 0, 0.633259, -1.23458, -0.476486, -4.35761 )
+
+[node name="Dresser" parent="End-Room" instance=ExtResource( 8 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1, 0, -1.5, 0, -6.55671e-08, -16.2227, -0.731656, 0.522491 )
+
+[node name="Dresser2" parent="End-Room" instance=ExtResource( 8 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1, 0, -1.5, 0, -6.55671e-08, -16.2227, -0.731656, -1.67427 )
+
+[node name="FloorLamp" parent="End-Room" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0854, -0.748524, -6.34534 )
+
+[node name="Corridor" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8637, 1.22206, -8.55457 )
+
+[node name="Dresser" parent="Corridor" instance=ExtResource( 8 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.12262, -1.20562, -1.5544 )
+
+[node name="Dresser2" parent="Corridor" instance=ExtResource( 8 )]
+transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -7.97388, -1.21385, 3.67503 )
+
+[node name="Bathroom" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0.5 )
+
+[node name="Toilet" parent="Bathroom" instance=ExtResource( 26 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, -5.76499, 0, 1.55028 )
+
+[node name="Single Bed" parent="Bathroom" instance=ExtResource( 27 )]
+transform = Transform( -8.74228e-08, 0, -1.5, 0, 1, 0, 2, 0, -6.55671e-08, 8.32249, -9.05991e-06, 2.89185 )
+
+[node name="Bathtub" parent="Bathroom" instance=ExtResource( 24 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 1, 0, -2, 0, -8.74228e-08, -8.1507, 0, 1.62135 )
+
+[node name="BathroomSink" parent="Bathroom" instance=ExtResource( 25 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, 0.560932, 0, -4.99759 )
+
+[node name="Dresser" parent="Bathroom" instance=ExtResource( 8 )]
+transform = Transform( -6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 9.61156, 0, 0 )
+
+[node name="Stove" parent="Bathroom" instance=ExtResource( 18 )]
+transform = Transform( 1.5, 0, 0, 0, 1.25, 0, 0, 0, 1.5, -2.855, 0, -4.7263 )
+
+[node name="TVStand" parent="Bathroom" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22722, 0.463172, -3.99611 )
+
+[node name="Tv" parent="Bathroom" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3127, 0.780163, -4.47258 )
+
+[node name="Couch" parent="Bathroom" instance=ExtResource( 20 )]
+transform = Transform( -1.54343, 0, 0.63597, 0, 1, 0, -1.27194, 0, -0.771713, -2.82895, 0.325885, -0.505699 )
+
+[node name="Fridge" parent="Bathroom" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 3.45968 )
+
+[node name="Toilet2" parent="Bathroom" instance=ExtResource( 26 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 1, 0, -2, 0, -8.74228e-08, 5.34879, 0.00663215, 2.91587 )
+
+[node name="Keyroom" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1486, 0, 0 )
+
+[node name="Bed_Double" parent="Keyroom" instance=ExtResource( 3 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 1, 0, -2, 0, -8.74228e-08, -4.33913, 0.528734, 0.7155 )
+
+[node name="Dresser" parent="Keyroom" instance=ExtResource( 8 )]
+transform = Transform( -6.55671e-08, 0, 2, 0, 1, 0, -1.5, 0, -8.74228e-08, -6.13479, 0, 3.41991 )
+
+[node name="Dresser2" parent="Keyroom" instance=ExtResource( 8 )]
+transform = Transform( -6.55671e-08, 0, 2, 0, 1, 0, -1.5, 0, -8.74228e-08, -6.13479, 0, -1.93234 )
+
+[node name="FloorLamp" parent="Keyroom" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7206, 0, -2.59605 )
+
+[node name="TVStand" parent="Keyroom" instance=ExtResource( 9 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 1.5, 0, 2, 0, -8.74228e-08, 3.54065, 0.698094, 0 )
+
+[node name="Tv" parent="Keyroom" instance=ExtResource( 10 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 4.54552, 1.1781, 0 )
+
+[node name="Toilet" parent="Keyroom" instance=ExtResource( 26 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, 4.35129, 0.00612316, 3.28489 )
