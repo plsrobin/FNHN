@@ -83,7 +83,7 @@ data = PoolVector3Array( 0.8571, -0.0143, -0.2866, -0.8571, -0.0143, 0.3964, 0.8
 script = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.602, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.602, 0, 0.0133344 )
 shape = SubResource( 1 )
 
 [node name="Door2Handle" type="MeshInstance" parent="StaticBody"]
