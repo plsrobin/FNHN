@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nathanknapp.png-df140e004c89dfa9213bb685434f8158.stex"
+path="res://.import/frontpage.png-5c898fb1b4366b9ac0afbe3f933fcd6d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/Nathanknapp.png"
-dest_files=[ "res://.import/Nathanknapp.png-df140e004c89dfa9213bb685434f8158.stex" ]
+source_file="res://Assets/Menu/frontpage.png"
+dest_files=[ "res://.import/frontpage.png-5c898fb1b4366b9ac0afbe3f933fcd6d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
