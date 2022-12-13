@@ -2,6 +2,9 @@ extends Spatial
 var door_state = false
 signal doorOpen()
 
+func interact():
+	pass
+
 func open_and_close():	
 	if door_state:
 		$StaticBody/AnimationPlayer.play("doorOpen")
