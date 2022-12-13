@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nathanknapp-hover.png-3f494601f132466192527b7e1953c66c.stex"
+path="res://.import/optionsknapp.png-df152ac295363944e1fe5d2aaa614d81.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/Nathanknapp-hover.png"
-dest_files=[ "res://.import/Nathanknapp-hover.png-3f494601f132466192527b7e1953c66c.stex" ]
+source_file="res://Assets/Menu/optionsknapp.png"
+dest_files=[ "res://.import/optionsknapp.png-df152ac295363944e1fe5d2aaa614d81.stex" ]
 
 [params]
 

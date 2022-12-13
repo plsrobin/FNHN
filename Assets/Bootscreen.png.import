@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nathanknapp-press.png-c25a3ed4378e355e65d9706e5ff4b836.stex"
+path="res://.import/Bootscreen.png-e91e115b6c2e305de8c3e0ac436afedd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/Nathanknapp-press.png"
-dest_files=[ "res://.import/Nathanknapp-press.png-c25a3ed4378e355e65d9706e5ff4b836.stex" ]
+source_file="res://Assets/Bootscreen.png"
+dest_files=[ "res://.import/Bootscreen.png-e91e115b6c2e305de8c3e0ac436afedd.stex" ]
 
 [params]
 
