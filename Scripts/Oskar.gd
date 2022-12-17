@@ -6,9 +6,12 @@ var path = []
 var path_node = 0
 
 var speed = 5
+var turnSpeed = 8
 
 var roam = true
-var sound = false
+var sound = true
+var isMoving = true
+var isMovingStrength = 0
 var walking = false
 
 #all waypoints
@@ -20,16 +23,20 @@ var atPos4 = true
 var enemyName = "Oskar"
 var playerName = "player"
 var soundDirection = null
+var targetPos = null
+var previous_position = global_transform.origin
 
 onready var nav = get_parent()
 onready var player = $"../../player"
 onready var wp = get_tree().get_nodes_in_group("waypoint")
-onready var SoundTimer = $SoundDirectionTimer
+onready var fakeEyes = $FakeEyes
 
 func _ready():
 	pass
 
 func _physics_process(delta):
+	if !isMoving:
+		sound = false
 	
 	if path_node < path.size():
 		var direction = (path[path_node] - global_transform.origin)
@@ -37,14 +44,25 @@ func _physics_process(delta):
 			path_node += 1
 		else:
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
+			fakeEyes.look_at(targetPos, Vector3.UP)
+			rotate_y(deg2rad(fakeEyes.rotation.y * turnSpeed))
+	is_moving()
+
+
+func is_moving():
+	if global_transform.origin != previous_position:
+		isMoving = true
+	elif isMovingStrength > 60:
+		isMoving = false
+		isMovingStrength = 0
+	else:
+		isMovingStrength += 1
+	previous_position = global_transform.origin
 			
 func move_to(target_pos):
+	targetPos = target_pos
 	path = nav.get_simple_path(global_transform.origin, target_pos)
 	path_node = 0
-
-func _on_SoundDirectionTimer_timeout():
-	sound = false
-	SoundTimer.stop()
 
 func _on_Timer_timeout():
 	if !roam:
@@ -64,8 +82,6 @@ func _on_Timer_timeout():
 func _on_Floor_body_entered(body):
 	sound = true
 	soundDirection = body.global_transform.origin
-	SoundTimer.wait_time = 3
-	SoundTimer.start()
 
 func _on_Floor_body_exited(body):
 	pass
