@@ -12,8 +12,13 @@ config_version=4
 
 config/name="Fem Nätter Hoss Habtegaber"
 run/main_scene="res://Scenes/main.tscn"
+boot_splash/image="res://Assets/Bootscreen.png"
 boot_splash/bg_color=Color( 0.0509804, 0.0509804, 0.0509804, 1 )
 config/icon="res://Assets/icon.png"
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
 
 [display]
 
@@ -72,6 +77,11 @@ interact={
 flashlight={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+fullscreen_toggle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777254,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
